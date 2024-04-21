@@ -9,7 +9,7 @@ import './styles.css';
 const API_KEY = '42544171-da249f8d1cbbc0c974f44b32c';
 
 const App = () => {
-  const [query, setQuery] = useState('');
+  const [query] = useState('');
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);

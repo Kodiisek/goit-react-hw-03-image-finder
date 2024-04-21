@@ -31,7 +31,7 @@ const App = () => {
     }
   };
 
-  const loadMoreImages = async () => {
+  const loadMoreImages = async (query) => {
     setIsLoading(true);
     setPage(page + 1);
     try {
@@ -60,7 +60,7 @@ const App = () => {
       <Searchbar onSubmit={handleSearch} />
       <ImageGallery images={images} onImageClick={handleImageClick} />
       {isLoading && <Loader />}
-      {images.length > 0 && <Button onClick={loadMoreImages} />}
+      {images.length > 0 && <Button onClick={() => loadMoreImages(query)} />}
       {selectedImage && <Modal imageUrl={selectedImage} onClose={handleCloseModal} />}
     </div>
   );

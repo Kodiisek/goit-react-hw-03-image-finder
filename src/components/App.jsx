@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import Searchbar from './Searchbar.jsx';
 import ImageGallery from './ImageGallerry.jsx';
-import Button from './Button';
+import Button from './Button.jsx';
 import Loader from './Loader.jsx';
 import Modal from './Modal.jsx';
 import './styles.css';
@@ -16,7 +15,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleSearch = async () => {
+  const handleSearch = async (query) => {
     setIsLoading(true);
     setPage(1);
     try {
@@ -58,7 +57,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Searchbar onSubmit={setQuery} />
+      <Searchbar onSubmit={handleSearch} />
       <ImageGallery images={images} onImageClick={handleImageClick} />
       {isLoading && <Loader />}
       {images.length > 0 && <Button onClick={loadMoreImages} />}
